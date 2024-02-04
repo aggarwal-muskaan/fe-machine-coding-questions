@@ -2,6 +2,3 @@
 
 2. If user inputs month & year, show calender of that month-year. 
 
-
-3. 
-< >

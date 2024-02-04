@@ -33,7 +33,7 @@ function generateCalender({ date, month, year, wrapper }) {
 }
 
 function printWeekdays() {
-  const weekdays = ["Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
 
   const header = document.createElement("div");
   header.style.display = "grid";
@@ -76,8 +76,7 @@ function printMonthDates({
       date.style.fontWeight = "bold";
     }
     if (isFirstDayOfMonth) {
-      if (weekdayOnFirst) date.style.gridColumnStart = weekdayOnFirst;
-      else date.style.gridColumnStart = 7;
+      date.style.gridColumnStart = weekdayOnFirst + 1;
       isFirstDayOfMonth = false;
     }
   }
