@@ -76,10 +76,31 @@ function printMonthDates({
       date.style.fontWeight = "bold";
     }
     if (isFirstDayOfMonth) {
-      date.style.gridColumnStart = weekdayOnFirst;
+      if (weekdayOnFirst) date.style.gridColumnStart = weekdayOnFirst;
+      else date.style.gridColumnStart = 7;
       isFirstDayOfMonth = false;
     }
   }
 
   return container;
+}
+
+const formSubmit = document.addEventListener("submit", userRequestedCalender);
+
+function userRequestedCalender(e) {
+  e.preventDefault();
+  const month = document.getElementById("userMonth").value;
+  const year = document.getElementById("userYear").value;
+
+  const currentMonthContainer = document.querySelector("#userSelectedCalender");
+  currentMonthContainer.innerHTML = "";
+  currentMonthContainer.style.textAlign = "center";
+  currentMonthContainer.style.margin = "2rem";
+  currentMonthContainer.style.border = "1px solid black";
+
+  generateCalender({
+    month,
+    year,
+    wrapper: currentMonthContainer,
+  });
 }

@@ -13,22 +13,34 @@
       <!-- select month and year -->
       <label>Month: </label>
       <select required id="userMonth">
-        <option value="0">Jan</option>
-        <option value="1">Feb</option>
-        <option value="2">March</option>
-        <option value="3">April</option>
-        <option value="4">May</option>
-        <option value="5">June</option>
-        <option value="6">July</option>
-        <option value="7">August</option>
-        <option value="8">Sep</option>
-        <option value="9">Oct</option>
-        <option value="10">Nov</option>
-        <option value="11">December</option>
+        <option value="1">Jan</option>
+        <option value="2">Feb</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">Sep</option>
+        <option value="10">Oct</option>
+        <option value="11">Nov</option>
+        <option value="12">December</option>
       </select>
 
       <label>Year: </label>
-      <input required type="text" minlength="4" id="userYear" />
+      <input
+        type="text"
+        name="year"
+        maxlength="4"
+        min="0"
+        max="9999"
+        step="1"
+        placeholder="YYYY"
+        pattern="[0-9]{4}"
+        required
+        minlength="4"
+        id="userYear"
+      />
 
       <button type="submit">Generate</button>
     </form>
