@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 style="text-align: center">Current Month:</h3>
+    <div id="currentMonth"></div>
+
+    <form class="formSubmit">
+      <!-- select month and year -->
+      <label>Month: </label>
+      <select required id="userMonth">
+        <option value="0">Jan</option>
+        <option value="1">Feb</option>
+        <option value="2">March</option>
+        <option value="3">April</option>
+        <option value="4">May</option>
+        <option value="5">June</option>
+        <option value="6">July</option>
+        <option value="7">August</option>
+        <option value="8">Sep</option>
+        <option value="9">Oct</option>
+        <option value="10">Nov</option>
+        <option value="11">December</option>
+      </select>
+
+      <label>Year: </label>
+      <input required type="text" minlength="4" id="userYear" />
+
+      <button type="submit">Generate</button>
+    </form>
+
+    <h3>User chose:</h3>
+    <div id="userSelectedCalender"></div>
+  </body>
+  <script src="./index.js"></script>
+</html>
