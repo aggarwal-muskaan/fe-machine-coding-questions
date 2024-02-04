@@ -1,7 +1,7 @@
 (function init() {
   const currentDate = new Date().getDate();
-  const currentMonth = new Date().getMonth() + 1; // 1-12
-  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1; // 1-12 => Jan-Dec
+  const currentYear = new Date().getFullYear(); // YYYY => 2024
 
   const currentMonthContainer = document.querySelector("#currentMonth");
   currentMonthContainer.style.textAlign = "center";
@@ -17,23 +17,23 @@
 })();
 
 function generateCalender({ date, month, year, wrapper }) {
-  const weekdayOnFirst = new Date(`${month}/01/${year}`).getDay(); // 1-7
+  const weekdayOnFirst = new Date(`${month}/01/${year}`).getDay(); // 1-7 => Mon-Sun, if 0 => Sun
 
-  const numberOfDaysInMonth = new Date(year, month, 0).getDate();
+  const numberOfDaysInMonth = new Date(year, month, 0).getDate(); // 28-31
 
-  const calenderHeader = printWeekdays();
+  const calenderHeader = printWeekdays(); // return row with week day names
   wrapper.appendChild(calenderHeader);
 
   const calenderContent = printMonthDates({
     highlightDate: date,
     weekdayOnFirst,
     numberOfDaysInMonth,
-  });
+  }); // return grid populated with dates of a month
   wrapper.appendChild(calenderContent);
 }
 
 function printWeekdays() {
-  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const header = document.createElement("div");
   header.style.display = "grid";
@@ -42,6 +42,7 @@ function printWeekdays() {
   for (let i = 0; i < 7; i++) {
     const day = document.createElement("h4");
     day.textContent = weekdays[i];
+
     day.style.padding = "0.4rem";
     day.style.border = "1px solid grey";
     day.style.margin = 0;
@@ -76,6 +77,7 @@ function printMonthDates({
       date.style.fontWeight = "bold";
     }
     if (isFirstDayOfMonth) {
+      // start 1 date from specified column
       date.style.gridColumnStart = weekdayOnFirst + 1;
       isFirstDayOfMonth = false;
     }
@@ -84,7 +86,7 @@ function printMonthDates({
   return container;
 }
 
-const formSubmit = document.addEventListener("submit", userRequestedCalender);
+const formSubmit = document.addEventListener("submit", userRequestedCalender); // user hit Submit btn after selecting month and year
 
 function userRequestedCalender(e) {
   e.preventDefault();
@@ -92,7 +94,7 @@ function userRequestedCalender(e) {
   const year = document.getElementById("userYear").value;
 
   const currentMonthContainer = document.querySelector("#userSelectedCalender");
-  currentMonthContainer.innerHTML = "";
+  currentMonthContainer.innerHTML = ""; // replace current user requested calender
   currentMonthContainer.style.textAlign = "center";
   currentMonthContainer.style.margin = "2rem";
   currentMonthContainer.style.border = "1px solid black";
