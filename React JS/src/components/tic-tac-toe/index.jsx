@@ -71,7 +71,7 @@ const TicTacToe = () => {
       if (isGameover) {
         setIsGameOver(true);
         setInfoTip(`Winner is player: ${player}`);
-      } else if (gridSize ** 2 === numOfFilledCells) {
+      } else if (gridSize ** 2 === numOfFilledCells + 1) {
         // TIE: nobody wins but the matrix is full
         setIsGameOver(true);
         setInfoTip(`It's a tie!`);
