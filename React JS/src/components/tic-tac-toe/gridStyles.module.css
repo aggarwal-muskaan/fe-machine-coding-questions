@@ -1,0 +1,29 @@
+.container {
+  width: 100vw;
+}
+
+.matrix {
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.singleRowElements {
+  display: flex;
+}
+
+.rowStyles {
+  border-bottom: 1px solid white;
+}
+
+.columnStyles {
+  border-right: 1px solid white;
+}
+
+.cellStyles {
+  cursor: pointer;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0.5rem 1rem;
+}
