@@ -1,5 +1,6 @@
 .container {
   width: 100vw;
+  text-align: center;
 }
 
 .matrix {
@@ -7,6 +8,12 @@
   width: fit-content;
   display: flex;
   flex-direction: column;
+
+  margin-top: 3rem;
+}
+
+.disableMatrix {
+  pointer-events: none;
 }
 
 .singleRowElements {

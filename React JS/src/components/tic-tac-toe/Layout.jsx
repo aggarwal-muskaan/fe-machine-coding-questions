@@ -1,13 +1,7 @@
 import React from "react";
 import styles from "./gridStyles.module.css";
 
-const Layout = () => {
-  const gridSize = 3;
-
-  const [matrixState, setMatrixState] = React.useState(
-    new Array(gridSize).fill("").map(() => new Array(gridSize).fill(""))
-  ); // initialise 2D array
-
+const Layout = ({ gridSize, matrixState, onCellClick }) => {
   return matrixState.map((row, index) => {
     const isLastRow = gridSize - 1 === index;
 
@@ -16,6 +10,7 @@ const Layout = () => {
         className={`${styles.singleRowElements} ${
           !isLastRow ? styles.rowStyles : ""
         }`}
+        key={`row-${index}`}
       >
         {row.map((cell, index1) => {
           const isLastColumn = gridSize - 1 === index1;
@@ -26,6 +21,8 @@ const Layout = () => {
               className={`${styles.cellStyles} ${
                 !isLastColumn ? styles.columnStyles : ""
               }`}
+              disabled={cell === ""}
+              onClick={() => (cell === "" ? onCellClick(index, index1) : {})}
             >
               {cell}
             </div>
